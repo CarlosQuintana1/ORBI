@@ -1,0 +1,13 @@
+{
+  "appId": "com.orbi.app",
+  "appName": "Orbi",
+  "webDir": "dist",
+  "backgroundColor": "#0a0a23",
+  "android": {
+    "backgroundColor": "#0a0a23",
+    "allowMixedContent": true
+  },
+  "server": {
+    "cleartext": true
+  }
+}

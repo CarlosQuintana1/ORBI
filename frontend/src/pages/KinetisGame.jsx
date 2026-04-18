@@ -39,7 +39,7 @@ function StarIcon({ size = 18 }) {
   )
 }
 
-function KinetisGame({ childName, onBack, onScore }) {
+function KinetisGame({ childName, onBack, onScore, initialLevel = 1 }) {
   const [phase, setPhase]       = useState('intro')
   const [bubbles, setBubbles]   = useState([])
   const [popped, setPopped]     = useState([])   // {id, x, y, color}
@@ -48,7 +48,7 @@ function KinetisGame({ childName, onBack, onScore }) {
   const [particles, setParticles] = useState([])
   const [score, setScore]       = useState(0)
   const [streak, setStreak]     = useState(0)
-  const [level, setLevel]       = useState(1)
+  const [level, setLevel]       = useState(initialLevel)
   const [challengeIdx, setChallengeIdx] = useState(0)
   const [caught, setCaught]     = useState(0)    // correct catches this challenge
   const [showLevelUp, setShowLevelUp] = useState(false)
@@ -238,12 +238,9 @@ function KinetisGame({ childName, onBack, onScore }) {
             <h2 className="kinetis-title">¡Planeta Kinetis!</h2>
           </div>
           <div className="kinetis-intro">
-            <div style={{ fontSize: '5rem' }}>🫧</div>
+            <div className="kinetis-intro-sphere" />
             <div className="kinetis-intro-text">
-              ¡Las burbujas están escapando!<br />
-              <strong>Toca rápido</strong> las burbujas del color correcto<br />
-              antes de que vuelen al espacio. 🚀<br />
-              ¡Cada ronda Orbi te dirá qué atrapar!
+              ¡Toca rápido las burbujas del color correcto antes de que vuelen al espacio!<br />Cada ronda Orbi te dirá qué atrapar.
             </div>
             <button className="btn-kinetis-start" onClick={startGame}>
               ¡A atrapar!
@@ -300,7 +297,7 @@ function KinetisGame({ childName, onBack, onScore }) {
             }}
             onPointerDown={e => !bubble.poppedAt && handlePop(e, bubble)}
           >
-            {bubble.type.label}
+            <span className="k-bubble-text">{bubble.type.tag}</span>
           </div>
         ))}
       </div>

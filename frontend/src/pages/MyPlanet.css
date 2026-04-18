@@ -245,6 +245,17 @@
   letter-spacing: -0.02em;
 }
 
+.mp-age-badge {
+  color: #f9c74f;
+  font-weight: 900;
+  font-size: 0.82rem;
+  margin-top: 0.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
 .mp-rank-badge {
   display: inline-block;
   margin-top: 0.4rem;

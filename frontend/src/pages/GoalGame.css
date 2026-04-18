@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap');
+
+.gg-container {
+  min-height: 100vh;
+  background: radial-gradient(ellipse at top, #2d2500 0%, #05050f 100%);
+  font-family: 'Nunito', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 2rem;
+}
+
+.gg-stars {
+  position: fixed; inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 10% 18%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(2px 2px at 32% 54%, rgba(255,255,255,0.5), transparent),
+    radial-gradient(1px 1px at 62% 28%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(2px 2px at 80% 70%, rgba(255,255,255,0.7), transparent);
+  pointer-events: none;
+  animation: gg-twinkle 6s ease-in-out infinite alternate;
+}
+@keyframes gg-twinkle { from{opacity:.4} to{opacity:1} }
+
+.gg-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 1.5rem 0;
+  z-index: 20;
+}
+
+.gg-badge {
+  color: #ffd60a;
+  font-weight: 900;
+  font-size: 0.9rem;
+  background: rgba(255,214,10,0.1);
+  padding: 0.3rem 0.9rem;
+  border-radius: 50px;
+  border: 1px solid rgba(255,214,10,0.3);
+}
+
+.gg-score {
+  color: #ffd60a;
+  font-weight: 900;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+/* ── Progress ── */
+.gg-progress-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 1.5rem 0;
+  width: 100%;
+  max-width: 440px;
+  z-index: 10;
+}
+
+.gg-progress-track {
+  flex: 1;
+  height: 6px;
+  background: rgba(255,255,255,0.07);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.gg-progress-fill {
+  height: 100%;
+  background: linear-gradient(to right, #ffd60a, #f9844a);
+  border-radius: 6px;
+  transition: width 0.4s ease;
+}
+
+.gg-progress-label {
+  color: rgba(255,255,255,0.4);
+  font-size: 0.8rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* ── Question card ── */
+.gg-question-card {
+  width: 100%;
+  max-width: 440px;
+  padding: 1.2rem 1.5rem;
+  background: rgba(255,214,10,0.06);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,214,10,0.2);
+  border-radius: 22px;
+  margin: 0.8rem 1.5rem;
+  z-index: 10;
+  animation: gg-q-in 0.35s cubic-bezier(0.34,1.4,0.64,1) both;
+}
+@keyframes gg-q-in { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+
+.gg-q-num {
+  color: rgba(255,214,10,0.6);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.4rem;
+}
+
+.gg-q-text {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 900;
+  line-height: 1.4;
+}
+
+/* ── Options ── */
+.gg-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  width: 100%;
+  max-width: 440px;
+  padding: 0 1.5rem;
+  z-index: 10;
+}
+
+.gg-opt {
+  border-radius: 16px;
+  padding: 0.9rem 1.2rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.85);
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-family: 'Nunito', sans-serif;
+  cursor: pointer;
+  text-align: left;
+  transition: transform 0.15s cubic-bezier(0.34,1.56,0.64,1), background 0.15s, border-color 0.15s;
+}
+.gg-opt:hover:not(:disabled) {
+  transform: translateX(4px) scale(1.01);
+  background: color-mix(in srgb, var(--oc) 15%, transparent);
+  border-color: color-mix(in srgb, var(--oc) 50%, transparent);
+  color: white;
+}
+.gg-opt:active:not(:disabled){ transform: scale(0.97); }
+.gg-opt.gg-chosen {
+  background: color-mix(in srgb, var(--oc) 25%, transparent);
+  border-color: var(--oc);
+  color: var(--oc);
+}
+.gg-opt:disabled { cursor: default; }
+
+/* ── Result ── */
+.gg-result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.5rem;
+  z-index: 10;
+  animation: gg-result-in 0.5s cubic-bezier(0.34,1.4,0.64,1) both;
+}
+@keyframes gg-result-in { from{opacity:0;transform:scale(.93)} to{opacity:1;transform:scale(1)} }
+
+.gg-result-title {
+  color: white;
+  font-size: 1.4rem;
+  font-weight: 900;
+  text-align: center;
+  text-shadow: 0 0 30px rgba(255,214,10,0.5);
+}
+
+.gg-result-subtitle {
+  color: rgba(255,255,255,0.55);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.gg-constellation {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-end;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.gg-trait-star {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  animation: gg-star-in 0.6s cubic-bezier(0.34,1.56,0.64,1) both;
+  filter: drop-shadow(0 0 12px var(--tc, #ffd60a));
+}
+.gg-trait-star:nth-child(2) { animation-delay: 0.15s; }
+.gg-trait-star:nth-child(3) { animation-delay: 0.3s; }
+@keyframes gg-star-in { from{transform:scale(0) rotate(180deg);opacity:0} to{transform:scale(1) rotate(0);opacity:1} }
+
+.gg-trait-name {
+  color: var(--tc, #ffd60a);
+  font-size: 0.8rem;
+  font-weight: 900;
+  text-align: center;
+}
+
+.gg-result-msg {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-align: center;
+  max-width: 340px;
+  line-height: 1.5;
+  background: rgba(255,214,10,0.06);
+  border: 1px solid rgba(255,214,10,0.15);
+  border-radius: 16px;
+  padding: 0.9rem 1.2rem;
+}
+
+/* ── Intro / shared ── */
+.gg-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2.5rem 1.5rem;
+  z-index: 10;
+}
+
+.gg-star-icon { animation: gg-spin 12s linear infinite; }
+@keyframes gg-spin { to{transform:rotate(360deg)} }
+
+.gg-intro-text {
+  color: rgba(255,255,255,0.9);
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.6;
+  max-width: 320px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,214,10,0.3);
+  border-radius: 20px;
+  padding: 1.2rem 1.5rem;
+}
+
+.btn-gg-start {
+  background: linear-gradient(135deg, #ffd60a, #f9844a);
+  border: none;
+  border-radius: 50px;
+  padding: 1rem 2.4rem;
+  font-size: 1.1rem;
+  font-weight: 900;
+  font-family: 'Nunito', sans-serif;
+  color: #1a1000;
+  cursor: pointer;
+  box-shadow: 0 6px 24px rgba(255,214,10,0.4);
+  transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1);
+}
+.btn-gg-start:hover  { transform: scale(1.06); }
+.btn-gg-start:active { transform: scale(0.95); }

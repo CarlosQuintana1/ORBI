@@ -13,7 +13,7 @@ const UNLOCK_RULES = [
 ]
 
 const PLANET_LABELS = {
-  matematica:    { name: 'Kálculo', emoji: '🔢', intelligence: 'Lógico-Matemática' },
+  matematica:    { name: 'Kalculu', emoji: '🔢', intelligence: 'Lógico-Matemática' },
   linguistica:   { name: 'Verbum',  emoji: '📖', intelligence: 'Lingüístico-Verbal' },
   naturalista:   { name: 'Terra',   emoji: '🌿', intelligence: 'Naturalista' },
   espacial:      { name: 'Prisma',  emoji: '🎨', intelligence: 'Visual-Espacial' },
@@ -99,7 +99,7 @@ Solo el reporte, sin títulos.`
 Escribe un mensaje motivador de 2-3 oraciones para sus padres diciéndoles qué pueden esperar del proceso.`
 
     const gemini = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

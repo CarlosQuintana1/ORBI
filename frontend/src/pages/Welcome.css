@@ -88,7 +88,7 @@
   display: block;
   margin-bottom: 0.5rem;
   animation: mascot-float 4s ease-in-out infinite;
-  filter: drop-shadow(0 0 30px rgba(199,125,255,0.5));
+  filter: drop-shadow(0 0 20px rgba(200,100,255,0.6)) drop-shadow(0 0 40px rgba(199,125,255,0.3));
 }
 
 @keyframes mascot-float {
@@ -107,18 +107,8 @@
 }
 
 .welcome-title span {
-  background: linear-gradient(90deg, #f9c74f 0%, #ff9f1c 30%, #f9c74f 60%, #ffe066 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  filter: drop-shadow(0 0 16px rgba(249,199,79,0.6));
-  animation: gold-shimmer 2.5s linear infinite;
-}
-
-@keyframes gold-shimmer {
-  from { background-position: 0% center; }
-  to   { background-position: 200% center; }
+  color: #f9c74f;
+  text-shadow: 0 0 20px rgba(249,199,79,0.5);
 }
 
 /* ── Card (glassmorphism) ── */
@@ -207,9 +197,288 @@
   cursor: not-allowed;
 }
 
+/* ── Age selector ── */
+.age-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  width: 100%;
+  margin-top: 0.3rem;
+}
+
+.age-option {
+  background: rgba(255,255,255,0.07);
+  border: 2px solid rgba(255,255,255,0.15);
+  border-radius: 50px;
+  padding: 0.9rem 1rem;
+  color: white;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 900;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 100%;
+  text-align: center;
+}
+.age-option:hover {
+  border-color: #c77dff;
+  background: rgba(199,125,255,0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(199,125,255,0.25);
+}
+
+/* ── Choice buttons (new vs returning) ── */
+.choice-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  width: 100%;
+}
+
+.btn-choice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1.5rem;
+  border-radius: 50px;
+  width: 100%;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.1rem;
+  transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s, background 0.2s;
+}
+
+.btn-choice:active { transform: scale(0.95); transition-duration: 0.08s; }
+
+.btn-choice.new-user {
+  background: linear-gradient(135deg, #f9c74f, #f77f00);
+  border: none;
+  color: #05050f;
+  font-weight: 900;
+  box-shadow: 0 4px 20px rgba(249,199,79,0.4);
+}
+
+.btn-choice.new-user:hover {
+  transform: scale(1.04);
+  box-shadow: 0 6px 28px rgba(249,199,79,0.6);
+  filter: brightness(1.06);
+}
+
+.btn-choice.returning {
+  background: transparent;
+  border: 2px solid rgba(255,255,255,0.3);
+  color: white;
+  font-weight: 700;
+}
+
+.btn-choice.returning:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.5);
+  transform: scale(1.02);
+}
+
+/* ── Age grid (individual year buttons) ── */
+.age-grid {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  margin-top: 0.3rem;
+}
+
+.age-btn {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  border: 2px solid rgba(249,199,79,0.4);
+  background: rgba(249,199,79,0.1);
+  color: white;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 900;
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), background 0.2s, box-shadow 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.age-btn:hover {
+  background: rgba(249,199,79,0.25);
+  border-color: #f9c74f;
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(249,199,79,0.4);
+}
+
+.age-btn:active { transform: scale(0.93); }
+
+/* ── PIN dots ── */
+.pin-dots {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  margin: 0.6rem 0 0.3rem;
+}
+
+.pin-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid rgba(199,125,255,0.55);
+  background: transparent;
+  transition: background 0.15s, border-color 0.15s, transform 0.15s;
+}
+
+.pin-dot.filled {
+  background: #c77dff;
+  border-color: #c77dff;
+  transform: scale(1.15);
+  box-shadow: 0 0 10px rgba(199,125,255,0.6);
+}
+
+/* ── PIN pad ── */
+.pin-pad {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.pin-row {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.pin-key {
+  width: 72px;
+  height: 64px;
+  border-radius: 16px;
+  border: 1.5px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.07);
+  color: white;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 900;
+  cursor: pointer;
+  transition: transform 0.12s cubic-bezier(0.34,1.56,0.64,1), background 0.15s, border-color 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+}
+
+.pin-key:hover {
+  background: rgba(199,125,255,0.2);
+  border-color: rgba(199,125,255,0.5);
+  transform: scale(1.08);
+}
+
+.pin-key:active {
+  transform: scale(0.92);
+  background: rgba(199,125,255,0.35);
+}
+
+.pin-key.del {
+  background: rgba(247,37,133,0.12);
+  border-color: rgba(247,37,133,0.3);
+  font-size: 1.2rem;
+}
+
+.pin-key.del:hover {
+  background: rgba(247,37,133,0.25);
+  border-color: rgba(247,37,133,0.55);
+}
+
+.pin-key.empty {
+  background: transparent;
+  border: none;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* ── PIN error message ── */
+.pin-error-msg {
+  color: #ff6b6b;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 0.3rem 0;
+  animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%       { transform: translateX(-6px); }
+  60%       { transform: translateX(6px); }
+  80%       { transform: translateX(-3px); }
+}
+
+/* ── PIN reveal ── */
+.pin-reveal-title {
+  color: white !important;
+  font-weight: 900 !important;
+  font-size: 1.1rem !important;
+  text-align: center;
+  margin-bottom: 0.2rem !important;
+}
+
+.pin-reveal {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  margin: 0.4rem 0;
+}
+
+.pin-digit-card {
+  width: 56px;
+  height: 64px;
+  background: rgba(255,255,255,0.1);
+  border: 2px solid #f9c74f;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Nunito', sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+  color: #f9c74f;
+  box-shadow: 0 0 12px rgba(249,199,79,0.25);
+}
+
+.pin-hint {
+  color: rgba(255,255,255,0.6) !important;
+  font-size: 0.8rem !important;
+  text-align: center;
+  margin: 0 0 0.5rem !important;
+}
+
+/* ── Back button ── */
+.btn-back {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.5);
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+  margin-top: 0.3rem;
+}
+.btn-back:hover { color: white; border-color: rgba(255,255,255,0.35); }
+
 /* ── Responsive ── */
 @media (max-width: 480px) {
   .welcome-title { font-size: 2.2rem; }
   .welcome-card  { padding: 2rem 1.5rem; }
   .welcome-card p { font-size: 1.1rem; }
+  .pin-key { width: 64px; height: 58px; font-size: 1.3rem; }
+  .age-btn { width: 58px; height: 58px; font-size: 1.3rem; }
 }

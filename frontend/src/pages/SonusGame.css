@@ -103,14 +103,23 @@
   margin: 0.6rem 0;
 }
 
-.sonus-orbi-svg {
-  filter: drop-shadow(0 0 24px rgba(199,125,255,0.7));
-  transition: transform 0.2s;
+.sonus-orbi-img {
+  border-radius: 50%;
+  object-fit: cover;
+  animation: sonus-orbi-float 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 24px rgba(199,125,255,0.6));
+  transition: filter 0.2s;
 }
 
-.sonus-orbi-svg.playing {
+.sonus-orbi-img.playing {
   animation: sonus-orbi-pulse 0.6s ease-in-out infinite alternate;
 }
+
+@keyframes sonus-orbi-float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+
 @keyframes sonus-orbi-pulse {
   from { transform: scale(1);    filter: drop-shadow(0 0 16px rgba(199,125,255,0.6)); }
   to   { transform: scale(1.08); filter: drop-shadow(0 0 36px rgba(199,125,255,1)); }
@@ -182,10 +191,10 @@
 /* ── Note buttons (for player input) ── */
 .notes-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
   width: 100%;
-  max-width: 360px;
+  max-width: 400px;
   z-index: 1;
   margin: 0.5rem 0;
 }
@@ -237,8 +246,7 @@
   opacity: 0.4;
 }
 
-.note-btn-emoji { font-size: 1.6rem; }
-.note-btn-label { font-size: 0.95rem; }
+.note-btn-label { font-size: 1.4rem; font-weight: 900; }
 
 /* ── Status message ── */
 .sonus-status {

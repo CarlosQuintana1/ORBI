@@ -1,24 +1,26 @@
 import { useState, useRef, useCallback, useEffect } from 'react'
 import './SonusGame.css'
 
-// ── 4 notas con frecuencias reales ───────────────────────────────
+// ── 6 notas con frecuencias reales ───────────────────────────────
 const NOTES = [
-  { id: 0, label: 'Do',  emoji: '🔴', color: '#ff4757', freq: 261.63 },
-  { id: 1, label: 'Re',  emoji: '🟡', color: '#ffd60a', freq: 293.66 },
-  { id: 2, label: 'Mi',  emoji: '🟢', color: '#06d6a0', freq: 329.63 },
-  { id: 3, label: 'Sol', emoji: '🔵', color: '#4cc9f0', freq: 392.00 },
+  { id: 0, label: 'Do',  color: '#ff4757', freq: 261.63 },
+  { id: 1, label: 'Re',  color: '#ffd60a', freq: 293.66 },
+  { id: 2, label: 'Mi',  color: '#06d6a0', freq: 329.63 },
+  { id: 3, label: 'Fa',  color: '#f9844a', freq: 349.23 },
+  { id: 4, label: 'Sol', color: '#4cc9f0', freq: 392.00 },
+  { id: 5, label: 'La',  color: '#c77dff', freq: 440.00 },
 ]
 
 const NOTE_EMOJIS = ['🎵', '🎶', '♪', '♫']
 
 // ── Web Audio helper ──────────────────────────────────────────────
-function playNote(freq, audioCtx, duration = 0.38) {
+function playNote(freq, audioCtx, duration = 0.5) {
   if (!audioCtx) return
-  const osc   = audioCtx.createOscillator()
-  const gain  = audioCtx.createGain()
+  const osc  = audioCtx.createOscillator()
+  const gain = audioCtx.createGain()
   osc.connect(gain)
   gain.connect(audioCtx.destination)
-  osc.type      = 'sine'
+  osc.type = 'sine'
   osc.frequency.value = freq
   gain.gain.setValueAtTime(0, audioCtx.currentTime)
   gain.gain.linearRampToValueAtTime(0.45, audioCtx.currentTime + 0.02)
@@ -38,54 +40,16 @@ function FloatingScore({ pts, id }) {
   )
 }
 
-// ── Orbi SVG para Sonus ───────────────────────────────────────────
+// ── Orbi imagen para Sonus ────────────────────────────────────────
 function OrbiSonus({ playing }) {
   return (
-    <svg
-      width="100" height="100"
-      viewBox="0 0 100 100"
-      fill="none"
-      className={`sonus-orbi-svg${playing ? ' playing' : ''}`}
-    >
-      <defs>
-        <radialGradient id="sb-body" cx="34%" cy="34%">
-          <stop offset="0%"   stopColor="#e8c4ff" />
-          <stop offset="55%"  stopColor="#c77dff" />
-          <stop offset="100%" stopColor="#4a0e8f" />
-        </radialGradient>
-      </defs>
-      <circle cx="50" cy="52" r="34" fill="url(#sb-body)" />
-      <ellipse cx="50" cy="52" rx="44" ry="11" stroke="rgba(255,215,80,0.6)" strokeWidth="3.5" fill="none" />
-      {/* Eyes */}
-      <ellipse cx="37" cy="50" rx="7" ry="8" fill="white" />
-      <ellipse cx="63" cy="50" rx="7" ry="8" fill="white" />
-      <circle cx="39" cy="52" r="4.5" fill="#1a0533" />
-      <circle cx="65" cy="52" r="4.5" fill="#1a0533" />
-      <circle cx="40.5" cy="50" r="2" fill="white" />
-      <circle cx="66.5" cy="50" r="2" fill="white" />
-      {/* Mouth: singing when playing */}
-      {playing ? (
-        <>
-          <path d="M35 65 Q50 78 65 65" fill="white" />
-          <ellipse cx="50" cy="70" rx="9" ry="5" fill="#7b2dcc" />
-        </>
-      ) : (
-        <path d="M36 65 Q50 74 64 65" stroke="white" strokeWidth="3" fill="none" strokeLinecap="round" />
-      )}
-      {/* Antennae */}
-      <line x1="40" y1="20" x2="34" y2="8" stroke="rgba(255,255,255,0.5)" strokeWidth="2.2" strokeLinecap="round"/>
-      <circle cx="33" cy="6" r="4.5" fill="#ffd60a" />
-      <line x1="60" y1="20" x2="66" y2="8" stroke="rgba(255,255,255,0.5)" strokeWidth="2.2" strokeLinecap="round"/>
-      <circle cx="67" cy="6" r="4.5" fill="#ffd60a" />
-      {/* Music notes when playing */}
-      {playing && (
-        <>
-          <text x="78" y="38" fontSize="16" fill="#c77dff" opacity="0.9">♪</text>
-          <text x="6"  y="42" fontSize="14" fill="#ffd60a" opacity="0.8">♫</text>
-          <text x="72" y="60" fontSize="11" fill="white"   opacity="0.6">♩</text>
-        </>
-      )}
-    </svg>
+    <img
+      src="/orbi-mascota.png"
+      alt="Orbi"
+      width="100"
+      height="100"
+      className={`sonus-orbi-img${playing ? ' playing' : ''}`}
+    />
   )
 }
 
@@ -363,7 +327,6 @@ function SonusGame({ childName, onBack, onScore }) {
               onClick={() => handleNotePress(note.id)}
               disabled={!canPress}
             >
-              <span className="note-btn-emoji">{note.emoji}</span>
               <span className="note-btn-label">{note.label}</span>
             </button>
           ))}

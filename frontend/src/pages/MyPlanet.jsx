@@ -3,7 +3,7 @@ import './MyPlanet.css'
 
 // ── Intelligence catalog ──────────────────────────────────────────
 const INTELLIGENCES = [
-  { id: 'matematica',    name: 'Lógica',     color: '#4cc9f0', rgb: '76,201,240',  emoji: '🔢', planet: 'Kálculo' },
+  { id: 'matematica',    name: 'Lógica',     color: '#4cc9f0', rgb: '76,201,240',  emoji: '🔢', planet: 'Kalculu' },
   { id: 'linguistica',   name: 'Lenguaje',   color: '#06d6a0', rgb: '6,214,160',   emoji: '📖', planet: 'Verbum'  },
   { id: 'espacial',      name: 'Visual',     color: '#f72585', rgb: '247,37,133',  emoji: '🎨', planet: 'Prisma'  },
   { id: 'musical',       name: 'Musical',    color: '#c77dff', rgb: '199,125,255', emoji: '🎵', planet: 'Sonus'   },
@@ -407,6 +407,13 @@ function MyPlanet({ player, onBack }) {
     return withScores[0] || INTELLIGENCES[0]
   }, [scores, unlockedPlanets])
 
+  const childAge = useMemo(() => {
+    try {
+      const d = JSON.parse(localStorage.getItem(`orbi_user_${name.toLowerCase()}`) || '{}')
+      return d.age || null
+    } catch { return null }
+  }, [name])
+
   const planetName = getPlanetName(name, domIntel)
   const rank       = getRank(totalScore)
   const seed       = nameHash(name)
@@ -461,6 +468,11 @@ function MyPlanet({ player, onBack }) {
         {/* Name & rank */}
         <div className="mp-name-card">
           <div className="mp-child-name">{name}</div>
+          {childAge && (
+            <div className="mp-age-badge">
+              <StarIcon size={13} /> Explorador de {childAge} años
+            </div>
+          )}
           <div className="mp-rank-badge" style={{ color: rank.color, borderColor: `${rank.color}55`, background: `${rank.color}18` }}>
             {rank.label}
           </div>

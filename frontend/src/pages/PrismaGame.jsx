@@ -157,7 +157,7 @@ function StarIcon({ size = 18 }) {
 function FloatingScore({ pts, id }) {
   return (
     <div className="prisma-float-score" style={{ left: `${38 + pr(id, 4) * 22}%` }}>
-      +{pts} ⭐
+      +{pts}
     </div>
   )
 }
@@ -212,8 +212,8 @@ function PrismaGame({ childName, onBack, onScore }) {
       onScore?.(pts)
       setRevealed(true)
 
-      if (newStreak >= 3) setStatus(`¡Brillante! Combo x${newStreak} ✨`)
-      else setStatus('¡Correcto! 🎉')
+      if (newStreak >= 3) setStatus(`¡Brillante! Combo x${newStreak}`)
+      else setStatus('¡Correcto!')
 
       // Floating score
       const fid = Date.now()
@@ -233,7 +233,7 @@ function PrismaGame({ childName, onBack, onScore }) {
     } else {
       setOptionFlash({ id: colorId, type: 'wrong' })
       setStreak(0)
-      setStatus('¡Inténtalo de nuevo! 🔍')
+      setStatus('¡Inténtalo de nuevo!')
       setTimeout(() => {
         setOptionFlash(null)
         setLocked(false)
@@ -259,7 +259,7 @@ function PrismaGame({ childName, onBack, onScore }) {
         </div>
         <div className="prisma-intro">
           <div className="prisma-intro-text">
-            🎨 Mira la cuadrícula de colores.<br />
+            Mira la cuadrícula de colores.<br />
             ¡Hay una celda <strong>vacía con ?</strong>!<br />
             Encuentra el color que <strong>completa el patrón</strong> y tócalo.
           </div>
@@ -282,7 +282,7 @@ function PrismaGame({ childName, onBack, onScore }) {
       <div className="prisma-shimmer" />
 
       {showLevelUp && (
-        <div className="prisma-levelup">✨ ¡Nivel {level}!<br /><span style={{ fontSize: '1rem' }}>Patrones más complejos</span></div>
+        <div className="prisma-levelup">¡Nivel {level}!<br /><span style={{ fontSize: '1rem' }}>Patrones más complejos</span></div>
       )}
 
       {floats.map(f => <FloatingScore key={f.id} pts={f.pts} id={f.id} />)}
@@ -300,7 +300,7 @@ function PrismaGame({ childName, onBack, onScore }) {
 
       <div className="orbi-prisma-wrap">
         <OrbiPrisma happy={orbiHappy} />
-        {streak >= 2 && <div className="prisma-streak">¡Racha x{streak}! ✨</div>}
+        {streak >= 2 && <div className="prisma-streak">¡Racha x{streak}!</div>}
       </div>
 
       {status && <div className="prisma-status" key={status}>{status}</div>}

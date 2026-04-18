@@ -294,7 +294,7 @@ function MonsterGame({ childName, onBack, onScore }) {
         <div className="game-score"><StarIcon /> {score}</div>
       </header>
 
-      <h2 className="game-title">Planeta Kálculo</h2>
+      <h2 className="game-title">Planeta Kalculu</h2>
 
       {streak >= 2 && (
         <div className="streak-badge">¡Racha x{streak}!</div>
