@@ -1,5 +1,4 @@
 # ORBI
-
 ORBI
 Orbi es una app educativa gamificada para niños de 6 a 10 años basada en la Teoría de las Inteligencias Múltiples de Howard Gardner. La idea principal es que no todos los niños aprenden igual ni son inteligentes de la misma forma, y quisimos hacer algo que reflejara eso. A través de 8 minijuegos, narración con IA y un sistema de progresión visual, Orbi identifica y potencia las fortalezas de cada niño convirtiendo el aprendizaje en una aventura entre planetas.
 
