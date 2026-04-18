@@ -1,94 +1,200 @@
-## *ORBI*
-Orbi es una app educativa gamificada para niños de 6 a 10 años basada en la Teoría de las Inteligencias Múltiples de Howard Gardner. La idea principal es que no todos los niños aprenden igual ni son inteligentes de la misma forma, y quisimos hacer algo que reflejara eso. A través de 8 minijuegos, narración con IA y un sistema de progresión visual, Orbi identifica y potencia las fortalezas de cada niño convirtiendo el aprendizaje en una aventura entre planetas.
+# 🪐 Orbi — Tu universo de inteligencia
+
+<p align="center">
+  <img src="frontend/public/orbi-logo.png" alt="Orbi Logo" height="120"/>
+</p>
+
+<p align="center">
+  <strong>La primera app educativa que adapta el aprendizaje al tipo de inteligencia único de cada niño.</strong>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+  <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" />
+  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" />
+  <img src="https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white" />
+  <img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" />
+  <img src="https://img.shields.io/badge/Google%20Gemini-8E75B2?style=for-the-badge&logo=google&logoColor=white" />
+  <img src="https://img.shields.io/badge/ElevenLabs-000000?style=for-the-badge&logo=elevenlabs&logoColor=white" />
+  <img src="https://img.shields.io/badge/Capacitor-119EFF?style=for-the-badge&logo=capacitor&logoColor=white" />
+</p>
+
+<p align="center">
+  <em>Construido en 36 horas para el <strong>MLH Hackathon Troyano 2026</strong> 🏆</em>
+</p>
 
 ---
 
-**Inspiración**
+## 🌌 ¿Qué es Orbi?
 
-El proyecto nace de una pregunta que todos nos hemos hecho: ¿por qué hay niños que se les dificulta la escuela tradicional pero son increíbles para otras cosas? Gardner demostró que la inteligencia no es una sola, son ocho. Y el sistema educativo actual, diseñado hace más de un siglo, sigue evaluando a todos los niños con el mismo molde, ignorando talentos que no encajan en matemáticas o lectura. Quisimos construir algo que le demostrara a los niños que son inteligentes, solo que de una forma diferente. Cada integrante del equipo aportó desde su área y eso se nota en el resultado.
+Millones de niños aprenden de la misma forma... aunque no todos piensan igual. La ciencia lleva décadas diciéndonos que cada niño tiene un tipo de inteligencia único — pero la educación tradicional solo reconoce uno.
 
----
+**Orbi cambia eso.**
 
-**¿Qué hace Orbi?**
+Basada en la **Teoría de las Inteligencias Múltiples de Howard Gardner**, Orbi es una app gamificada donde cada inteligencia es un **planeta** que el niño descubre jugando. La inteligencia artificial observa en silencio, personaliza cada experiencia, y ayuda a los padres a entender cómo piensa realmente su hijo.
 
-8 Planetas, 8 Inteligencias: cada inteligencia de Gardner tiene su propio planeta con un minijuego diseñado específicamente para ese tipo de pensamiento. El niño desbloquea planetas conforme acumula puntos, construyendo su universo personal.
-
-Aprendizaje adaptado al niño: el sistema registra el desempeño en cada inteligencia y construye un perfil de fortalezas en tiempo real. No existe una sola forma de ser inteligente y Orbi lo demuestra jugando.
-
-Identificación temprana de la inteligencia principal: uno de los aportes más importantes de Orbi es que permite a los padres descubrir desde temprana edad en qué área destaca naturalmente su hijo. Conocer la inteligencia dominante de un niño a los 6, 7 u 8 años abre una ventana enorme: permite orientar sus actividades, sus hobbies y su desarrollo hacia donde tiene más potencial. Un niño que descubre pronto que tiene inteligencia musical, espacial o interpersonal puede cultivar esa habilidad durante años antes de llegar a la adolescencia, lo que le da una ventaja real a la hora de elegir una profesión o un camino de vida que le apasione y en el que naturalmente destacará.
-
-Desarrollo de habilidades para el futuro: el sistema educativo tradicional está diseñado para un mundo que ya no existe. Día a día se vuelve más obsoleto frente a las demandas del siglo XXI, donde la creatividad, la inteligencia emocional, el pensamiento espacial y la capacidad de trabajar con otros son igual de valiosas que saber hacer una ecuación. Orbi trabaja desde temprano todas estas habilidades de forma lúdica, acostumbrando al niño a desarrollarlas naturalmente antes de que el sistema escolar decida ignorarlas. No se trata solo de jugar, se trata de construir una base sólida para lo que viene.
-
-IA generativa integrada: Gemini genera historias personalizadas con el nombre del niño, identifica seres vivos a través de la cámara del dispositivo, y produce reportes para los padres con lenguaje claro y accionable.
-
-Voz de Orbi: ElevenLabs le da voz a Orbi, la mascota espacial de la plataforma, narrándole las historias directamente al niño dentro del juego.
-
-Mi Planeta: cada niño tiene un planeta generativo único. Su color, superficie, anillos y lunas cambian según sus inteligencias dominantes y su progreso. Ningún planeta se ve igual al de otro niño.
-
-Dashboard para padres: un reporte con análisis de IA muestra a los padres qué inteligencias destacan en su hijo, con gráficas de progreso y recomendaciones concretas sobre cómo potenciar esas fortalezas en casa y en actividades extracurriculares.
+No es otro juego educativo. Es el primer sistema que **descubre el universo de inteligencia** de cada niño.
 
 ---
 
-**Arquitectura del Proyecto**
+## 🪐 Los 8 planetas
 
-Orbi se compone de tres partes principales.
-
-Interfaz de Usuario (Frontend): desarrollada con React y Vite, sin librerías de UI externas. Todo el diseño visual, las animaciones y los gráficos los construimos desde cero con CSS puro y SVG. La interfaz es completamente responsiva y está optimizada para uso táctil en tabletas y celulares.
-
-Módulo de IA y Lógica (Backend): implementado en Node.js con Express 5. Gestiona los perfiles de jugadores, puntajes y planetas desbloqueados. Se conecta directamente con las APIs de Gemini y ElevenLabs para la generación de contenido en tiempo real.
-
-Base de Datos: MongoDB Atlas almacena los perfiles de cada niño, sus puntajes por inteligencia, los planetas desbloqueados y el historial de sesiones.
-
----
-
-**Tecnologías Utilizadas**
-
-Frontend: React, Vite, CSS Animations, SVG puro. Backend: Node.js, Express 5, Mongoose. Base de datos: MongoDB Atlas. IA Generativa: Google Gemini API para texto y visión artificial. Síntesis de voz: ElevenLabs API. APIs nativas del navegador: Web Audio API para las notas musicales en Sonus, MediaDevices API para la cámara en Terra.
+| Planeta | Inteligencia | Cómo se explora |
+|---|---|---|
+| 🔵 **Kalculu** | Lógico-Matemática | Monstruos cósmicos que piden combinaciones, conteo adaptativo |
+| 🟢 **Verbum** | Lingüístico-Verbal | Historias personalizadas generadas por IA, lectura en voz alta con highlighting sincronizado |
+| 🩷 **Prisma** | Visual-Espacial | Construcción de naves con piezas geométricas, percepción de formas |
+| 🔴 **Kinetis** | Corporal-Cinestésica | Ritmo, velocidad de reacción y movimiento |
+| 🟣 **Sonus** | Musical | Secuencias musicales reales con frecuencias exactas (Do, Re, Mi...) |
+| 🟢 **Terra** | Naturalista | Identificación de animales y plantas con la cámara del dispositivo + Gemini Vision |
+| 🟠 **Nexus** | Interpersonal | Lectura de emociones y trabajo en equipo |
+| 🟡 **Lumis** | Intrapersonal | Metas personales y autoconocimiento |
 
 ---
 
-**Los 8 Planetas**
+## ✨ Features principales
 
-Kálculo — Inteligencia Lógico-Matemática. El niño alimenta a un monstruo con la cantidad y forma correcta de objetos. Verbum — Inteligencia Lingüístico-Verbal. Orbi genera una historia personalizada con el nombre del niño y se la narra con voz real. Prisma — Inteligencia Visual-Espacial. El niño completa patrones de colores en una cuadrícula que escala en dificultad. Sonus — Inteligencia Musical. Se reproduce una secuencia de notas reales y el niño debe repetirla en el orden correcto. Terra — Inteligencia Naturalista. El niño apunta la cámara a un animal o planta y Gemini lo identifica con un dato curioso. Kinetis — Inteligencia Corporal-Cinestésica. Burbujas de colores suben por la pantalla y el niño las atrapa antes de que escapen. Nexus — Inteligencia Interpersonal. Se presentan situaciones sociales reales y el niño elige la respuesta más empática, con retroalimentación educativa en cada caso. Lumis — Inteligencia Intrapersonal. El niño responde preguntas sobre sí mismo y al final se genera su Carta de Identidad espacial única.
+### 🎙️ Orbi Chat — una mascota con alma
+Orbi no es un chatbot más. Es un **amigo espacial** con voz natural que:
+- **Escucha** al niño con ElevenLabs Speech-to-Text
+- **Piensa** con Gemini, usando el contexto real del perfil del niño (planetas desbloqueados, estrellas, edad)
+- **Responde** con voz cálida usando ElevenLabs TTS
+- **Cuida** su bienestar emocional con respuestas apropiadas ante temas sensibles
 
----
+### 📖 Historias generadas en tiempo real
+Cada historia es **única** — generada por Gemini con el nombre del niño como protagonista, adaptada a su nivel de lectura y al tema que él elige. La narración con ElevenLabs incluye **timestamps sincronizados** para resaltar cada palabra mientras Orbi la lee.
 
-**Desafíos y Soluciones**
+### 🎯 Evaluación de lectura con IA
+El niño lee en voz alta. ElevenLabs transcribe. Gemini analiza precisión, fluidez y pronunciación — y devuelve un mensaje personalizado de Orbi que motiva sin regañar.
 
-Diseñar para niños de 6 años: el reto más grande no fue técnico sino de diseño. No podíamos poner instrucciones largas ni textos complicados. Cada juego tenía que ser autoexplicable desde los primeros tres segundos. La solución fue eliminar cualquier texto instructivo del gameplay y hacer que la mecánica se entendiera solo con ver la pantalla.
+### 📊 Dashboard Parental — entendimiento real
+Los papás no ven tablas aburridas. Ven:
+- **Radar chart** de las 8 inteligencias con SVG puro
+- **Sparkline** de sesiones recientes
+- **Reporte estructurado** generado por Gemini con fortalezas reales y recomendaciones concretas
+- **Exportable a PDF** para compartir con docentes o terapeutas
 
-IA en tiempo real sin romper la experiencia: las llamadas a Gemini no son instantáneas y eso podía sacar al niño del juego. Lo resolvimos animando a Orbi mientras espera la respuesta, convirtiendo la carga en parte de la experiencia y no en una interrupción.
+### 📸 Terra — identificación visual
+El niño apunta la cámara a un insecto, planta o animal. **Gemini Vision** (multimodal) identifica al ser vivo y genera un dato curioso divertido, narrado con voz por Orbi.
 
-Planeta generativo único por niño: necesitábamos que cada niño tuviera un planeta visualmente distinto sin depender de imágenes externas. Construimos un generador SVG determinista basado en un hash del nombre del niño que produce colores, manchas, bandas y anillos únicos y reproducibles para cada usuario.
+### 🔓 Desbloqueo progresivo
+Cada planeta se abre conforme el niño acumula estrellas — creando una sensación de descubrimiento y progreso constante.
 
-Progresión motivacional: mantener el interés de un niño de 6 años en múltiples sesiones requirió un sistema de desbloqueo progresivo. Los planetas nuevos se revelan conforme acumula puntos, generando anticipación constante para seguir jugando.
-
-Hacer relevante la información para los padres: no bastaba con mostrar números. Los padres necesitan entender qué significa que su hijo tenga 40 puntos en inteligencia musical. Usamos Gemini para traducir los datos en lenguaje humano, con recomendaciones concretas y accionables que cualquier papá puede aplicar sin ser especialista.
-
----
-
-**Logros y Aprendizajes**
-
-Logramos construir una plataforma completa con los 8 juegos funcionando durante el hackathon. Integrar IA generativa y visión artificial en un contexto educativo infantil fue un aprendizaje enorme para el equipo, especialmente pensar cómo hacer que una tecnología tan compleja se sintiera invisible para un niño de primer grado. El trabajo multidisciplinario entre diseño, frontend, backend e IA fue clave para que todo encajara en el tiempo disponible.
-
----
-
-**Próximos Pasos**
-
-Currículum por grado escolar: alinear los retos de cada planeta con los contenidos oficiales de primaria en México para que Orbi sea un complemento directo al aula.
-
-Modo cooperativo: explorar mecánicas donde dos niños con inteligencias dominantes distintas deban colaborar para resolver retos combinados.
-
-Panel para docentes: extender el dashboard hacia un panel para maestros con progresión grupal y detección de áreas de oportunidad por salón.
-
-Accesibilidad: incorporar soporte para daltonismo, navegación por voz y modos de alto contraste para que Orbi sea para todos los niños.
-
-Orientación vocacional temprana: en futuras versiones, una vez identificada la inteligencia dominante del niño, Orbi podrá sugerir a los padres actividades, deportes, artes o disciplinas concretas que potencien esa habilidad, creando un camino de desarrollo personalizado desde los primeros años de vida.
+### 💡 Tips motivacionales con voz
+Al terminar cada sesión, Orbi genera un mensaje de voz único y personalizado con el desempeño real del niño.
 
 ---
 
-*Orbi nació de una idea simple: todos los niños son inteligentes. Solo necesitan el espacio correcto para demostrarlo. Y los papás merecen saber exactamente en qué brilla su hijo.*e dos niños con inteligencias dominantes distintas deban colaborar para resolver retos combinados.
-Panel para docentes: extender el dashboard hacia un panel para maestros con progresión grupal y detección de áreas de oportunidad por salón.
-Accesibilidad: incorporar soporte para daltonismo, navegación por voz y modos de alto contraste para que Orbi sea para todos los niños.
+## 🏗️ Arquitectura
+┌─────────────────────────────────────────────────────────┐ │ Frontend (React + Vite + Capacitor) │ │ └─ Sistema Solar · Mini-juegos · Chat · Dashboard │ └──────────────────────┬──────────────────────────────────┘ │ HTTP / fetch ┌──────────────────────▼──────────────────────────────────┐ │ Backend (Node.js + Express) │ │ ├─ /api/story/generate → Gemini (historias) │ │ ├─ /api/story/speak → ElevenLabs TTS │ │ ├─ /api/story/transcribe → ElevenLabs STT │ │ ├─ /api/story/chat → Gemini conversacional │ │ ├─ /api/story/evaluate → Análisis de lectura │ │ ├─ /api/story/parent-report → Reporte IA │ │ └─ /api/vision/identify → Gemini Vision (Terra) │ └──────────┬───────────────┬───────────────┬──────────────┘ │ │ │ ┌────────▼──────┐ ┌──────▼─────┐ ┌───────▼──────────┐ │ Google Gemini │ │ ElevenLabs │ │ MongoDB Atlas │ │ 2.5 Flash │ │ STT + TTS │ │ Perfiles + Progreso│ └───────────────┘ └────────────┘ └───────────────────┘
 
-Orbi nació de una idea simple: todos los niños son inteligentes. Solo necesitan el espacio correcto para demostrarlo.
+---
+
+## 🚀 Instalación y uso
+
+### Requisitos previos
+- Node.js 18+
+- npm
+- Cuenta en Google AI Studio, ElevenLabs y MongoDB Atlas
+
+### 1. Clonar el repositorio
+```bash
+git clone https://github.com/DazaiInfinityStack/ORBI-Hackathon-Troyano-2026.git
+cd ORBI-Hackathon-Troyano-2026
+```
+
+### 2. Instalar dependencias
+```bash
+cd backend && npm install
+cd ../frontend && npm install
+```
+
+### 3. Variables de entorno
+Crea un archivo `.env` en la carpeta `backend/`:
+
+```env
+PORT=3001
+MONGODB_URI=tu_connection_string_de_mongodb_atlas
+GEMINI_API_KEY=tu_api_key_de_google_ai_studio
+ELEVENLABS_API_KEY=tu_api_key_de_elevenlabs
+```
+
+### 4. Levantar el proyecto
+Necesitas **dos terminales** corriendo en paralelo:
+
+**Terminal 1 — Backend:**
+```bash
+cd backend
+node index.js
+```
+
+**Terminal 2 — Frontend:**
+```bash
+cd frontend
+npm run dev
+```
+
+Abre **http://localhost:5173** en tu navegador y... ¡a explorar el universo! 🚀
+
+### 5. Build móvil con Capacitor (opcional)
+```bash
+cd frontend
+npm run build
+npx cap sync android
+npx cap open android
+```
+
+---
+
+## 🎯 Retos del hackathon cubiertos
+
+| Sponsor | Uso en Orbi |
+|---|---|
+| 🎧 **ElevenLabs** | Voz de la mascota · Narración de historias · Chat bidireccional · Tips motivacionales · Timestamps sincronizados |
+| 🤖 **Google Gemini** | Historias personalizadas · Chat conversacional con contexto · Análisis de lectura · Reporte parental · Vision multimodal para identificación de seres vivos |
+| 🗄️ **MongoDB Atlas** | Perfiles de niños · Historial de sesiones · Progreso por planeta · Data para el reporte parental |
+
+---
+
+## 🛠️ Stack completo
+
+**Frontend**
+- React 18 + Vite
+- CSS animations + SVG puro para radar charts
+- Capacitor para build Android
+- Web Audio API para sonidos musicales reales
+
+**Backend**
+- Node.js + Express
+- Mongoose para MongoDB
+- Multer / FormData para manejo de audio
+
+**IA y servicios**
+- Google Gemini 2.5 Flash (texto + visión)
+- ElevenLabs (TTS con `eleven_multilingual_v2` + STT con `scribe_v1`)
+- MongoDB Atlas (free tier)
+
+---
+
+## 👥 Créditos
+
+**Equipo Dazai Infinity Stack**
+
+Un equipo de 5 estudiantes de la **Universidad Autónoma de Querétaro** que construyó Orbi desde cero durante el Hackathon Troyano 2026 — con la convicción de que cada niño merece aprender a su manera.
+
+---
+
+## 📜 Licencia
+
+MIT — Siéntete libre de explorar, aprender y mejorar.
+
+---
+
+<p align="center">
+  <strong>Porque cada niño tiene un universo de inteligencia por descubrir.</strong>
+</p>
+
+<p align="center">
+  🪐 Hecho con ❤️ en Querétaro, México · Hackathon Troyano 2026
+</p>
+
