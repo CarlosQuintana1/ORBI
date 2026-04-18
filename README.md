@@ -10,13 +10,11 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
-  <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" />
   <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" />
   <img src="https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white" />
   <img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" />
   <img src="https://img.shields.io/badge/Google%20Gemini-8E75B2?style=for-the-badge&logo=google&logoColor=white" />
   <img src="https://img.shields.io/badge/ElevenLabs-000000?style=for-the-badge&logo=elevenlabs&logoColor=white" />
-  <img src="https://img.shields.io/badge/Capacitor-119EFF?style=for-the-badge&logo=capacitor&logoColor=white" />
 </p>
 
 <p align="center">
@@ -178,15 +176,7 @@ npx cap open android
 
 ## 👥 Créditos
 
-**Equipo Dazai Infinity Stack**
-
 Un equipo de 5 estudiantes de la **Universidad Autónoma de Querétaro** que construyó Orbi desde cero durante el Hackathon Troyano 2026 — con la convicción de que cada niño merece aprender a su manera.
-
----
-
-## 📜 Licencia
-
-MIT — Siéntete libre de explorar, aprender y mejorar.
 
 ---
 
