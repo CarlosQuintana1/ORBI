@@ -1,0 +1,367 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap');
+
+.lumis-container {
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 0%,   rgba(255,214,10,0.12)  0%, transparent 55%),
+    radial-gradient(ellipse 60% 80% at 5%  90%,  rgba(255,214,10,0.06)  0%, transparent 55%),
+    radial-gradient(ellipse at center, #141005 0%, #05050f 100%);
+  padding: 1.5rem;
+  font-family: 'Nunito', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.lumis-stars {
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at  9% 15%, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1px 1px at 23% 44%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(2px 2px at 38% 22%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(1px 1px at 55% 68%, rgba(255,255,255,0.9), transparent),
+    radial-gradient(1px 1px at 70% 30%, rgba(255,255,255,0.5), transparent),
+    radial-gradient(2px 2px at 84% 14%, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1px 1px at 93% 58%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(2px 2px at 16% 82%, rgba(255,255,255,0.6), transparent);
+  pointer-events: none;
+  animation: lm-twinkle 7s ease-in-out infinite alternate;
+}
+@keyframes lm-twinkle { from{opacity:.4} to{opacity:1} }
+
+/* ── Golden shimmer ── */
+.lumis-shimmer {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse 120% 60% at 50% 0%, rgba(255,214,10,0.05), transparent 60%);
+  pointer-events: none;
+  animation: lm-shimmer 4s ease-in-out infinite alternate;
+}
+@keyframes lm-shimmer {
+  from { opacity: 0.5; }
+  to   { opacity: 1; }
+}
+
+/* ── Header ── */
+.lumis-badge {
+  color: #ffd60a;
+  font-weight: 900;
+  font-size: 1rem;
+  background: rgba(255,214,10,0.12);
+  padding: 0.3rem 0.9rem;
+  border-radius: 50px;
+  border: 1px solid rgba(255,214,10,0.35);
+}
+
+/* ── Title ── */
+.lumis-title {
+  color: white;
+  font-size: 1.7rem;
+  font-weight: 900;
+  text-align: center;
+  margin: 0.5rem 0 0.2rem;
+  text-shadow: 0 0 24px rgba(255,214,10,0.7);
+  position: relative; z-index: 1;
+}
+
+.lumis-subtitle {
+  color: rgba(255,255,255,0.5);
+  font-size: 0.9rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  position: relative; z-index: 1;
+}
+
+/* ── Progress bar ── */
+.lumis-progress {
+  width: 100%;
+  max-width: 420px;
+  margin-bottom: 1rem;
+  position: relative; z-index: 1;
+}
+
+.lumis-progress-track {
+  height: 7px;
+  background: rgba(255,255,255,0.07);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.lumis-progress-fill {
+  height: 100%;
+  border-radius: 10px;
+  background: linear-gradient(to right, #ffd60a, #ff9f43);
+  box-shadow: 0 0 10px rgba(255,214,10,0.6);
+  transition: width 0.5s cubic-bezier(0.4,0,0.2,1);
+}
+
+.lumis-progress-label {
+  color: rgba(255,255,255,0.35);
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-top: 0.35rem;
+  text-align: right;
+}
+
+/* ── Question card ── */
+.lumis-question-card {
+  background: rgba(255,214,10,0.06);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,214,10,0.2);
+  border-radius: 28px;
+  padding: 1.6rem 1.4rem;
+  width: 100%;
+  max-width: 420px;
+  margin-bottom: 1.2rem;
+  position: relative; z-index: 1;
+  animation: lm-card-in 0.4s cubic-bezier(0.34,1.56,0.64,1);
+}
+
+@keyframes lm-card-in {
+  from { transform: scale(0.88) translateY(18px); opacity: 0; }
+  to   { transform: scale(1)    translateY(0);    opacity: 1; }
+}
+
+.lumis-q-emoji {
+  font-size: 3.2rem;
+  text-align: center;
+  margin-bottom: 0.7rem;
+  animation: lm-float 3s ease-in-out infinite;
+}
+@keyframes lm-float {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(-7px); }
+}
+
+.lumis-q-text {
+  color: white;
+  font-size: 1.15rem;
+  font-weight: 900;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* ── Answer options ── */
+.lumis-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+  width: 100%;
+  max-width: 420px;
+  position: relative; z-index: 1;
+}
+
+.lumis-option {
+  background: rgba(255,255,255,0.04);
+  border: 2px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 1rem 0.8rem;
+  cursor: pointer;
+  transition: transform 0.18s cubic-bezier(0.34,1.56,0.64,1), border-color 0.2s, background 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: 'Nunito', sans-serif;
+  text-align: center;
+}
+
+.lumis-option:hover {
+  transform: translateY(-4px) scale(1.04);
+  border-color: rgba(255,214,10,0.5);
+  background: rgba(255,214,10,0.08);
+  box-shadow: 0 8px 24px rgba(255,214,10,0.15);
+}
+
+.lumis-option:active { transform: scale(0.93); }
+
+.lumis-option.selected {
+  border-color: #ffd60a;
+  background: rgba(255,214,10,0.18);
+  box-shadow: 0 0 24px rgba(255,214,10,0.35);
+  animation: lm-select 0.35s cubic-bezier(0.34,1.56,0.64,1);
+}
+
+@keyframes lm-select {
+  0%  { transform: scale(1); }
+  40% { transform: scale(1.12); }
+  100%{ transform: scale(1); }
+}
+
+.lm-opt-emoji { font-size: 2rem; }
+.lm-opt-label { color: white; font-size: 0.82rem; font-weight: 700; line-height: 1.35; }
+
+/* ── Identity card (end screen) ── */
+.lumis-card-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  position: relative; z-index: 1;
+  width: 100%;
+  max-width: 420px;
+}
+
+.identity-card {
+  width: 100%;
+  background: linear-gradient(145deg, rgba(255,214,10,0.12), rgba(255,159,67,0.08));
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(255,214,10,0.4);
+  border-radius: 32px;
+  padding: 2rem 1.5rem;
+  box-shadow:
+    0 0 40px rgba(255,214,10,0.15),
+    0 20px 60px rgba(0,0,0,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.08);
+  animation: lm-card-reveal 0.6s cubic-bezier(0.34,1.56,0.64,1);
+}
+
+@keyframes lm-card-reveal {
+  from { transform: scale(0.7) rotateY(20deg); opacity: 0; }
+  to   { transform: scale(1)   rotateY(0);     opacity: 1; }
+}
+
+.id-header {
+  text-align: center;
+  margin-bottom: 1.4rem;
+  border-bottom: 1px solid rgba(255,214,10,0.2);
+  padding-bottom: 1rem;
+}
+
+.id-orbi-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: rgba(255,214,10,0.7);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.id-name {
+  color: white;
+  font-size: 1.9rem;
+  font-weight: 900;
+  text-shadow: 0 0 20px rgba(255,214,10,0.5);
+  text-transform: capitalize;
+}
+
+.id-planet-name {
+  color: rgba(255,214,10,0.65);
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-top: 0.2rem;
+  letter-spacing: 0.08em;
+}
+
+.id-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.id-row {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.6rem 0.8rem;
+  background: rgba(255,255,255,0.03);
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.05);
+  animation: lm-row-in 0.4s calc(var(--ri) * 0.08s) ease both;
+}
+
+@keyframes lm-row-in {
+  from { transform: translateX(-12px); opacity: 0; }
+  to   { transform: translateX(0);     opacity: 1; }
+}
+
+.id-row-emoji { font-size: 1.5rem; flex-shrink: 0; }
+.id-row-label { color: rgba(255,255,255,0.4); font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
+.id-row-value { color: white; font-size: 0.95rem; font-weight: 900; }
+
+.id-star-bar {
+  display: flex;
+  gap: 4px;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+.id-star {
+  color: #ffd60a;
+  font-size: 1.2rem;
+  animation: lm-star-pop 0.3s calc(var(--si) * 0.1s) cubic-bezier(0.34,1.56,0.64,1) both;
+}
+
+@keyframes lm-star-pop {
+  from { transform: scale(0); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+/* ── Floating score ── */
+.lumis-float {
+  position: fixed;
+  font-size: 1.8rem; font-weight: 900;
+  color: #ffd60a;
+  text-shadow: 0 0 16px rgba(255,214,10,0.9);
+  pointer-events: none; z-index: 50;
+  animation: lm-float-up 1s ease-out forwards;
+}
+@keyframes lm-float-up {
+  0%   { transform: translateY(0)   scale(.7); opacity: 0; }
+  20%  { transform: translateY(-8px) scale(1.2); opacity: 1; }
+  100% { transform: translateY(-60px) scale(.9); opacity: 0; }
+}
+
+/* ── Buttons ── */
+.btn-lumis {
+  background: linear-gradient(135deg, #ffd60a, #ff9f43);
+  border: none; border-radius: 50px;
+  padding: 1rem 2.4rem;
+  font-size: 1.1rem; font-weight: 900;
+  font-family: 'Nunito', sans-serif;
+  color: #05050f; cursor: pointer;
+  box-shadow: 0 6px 25px rgba(255,214,10,0.45);
+  transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1);
+}
+.btn-lumis:hover  { transform: scale(1.06); }
+.btn-lumis:active { transform: scale(0.95); }
+
+/* ── Intro ── */
+.lumis-intro {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 1.4rem; z-index: 1; width: 100%; max-width: 420px;
+}
+
+.lumis-intro-text {
+  color: rgba(255,255,255,0.85); font-size: 1rem; font-weight: 700;
+  text-align: center;
+  background: rgba(255,214,10,0.06);
+  border: 1px solid rgba(255,214,10,0.2);
+  border-radius: 20px; padding: 1.2rem 1.5rem; line-height: 1.7;
+}
+
+.btn-lumis-start {
+  background: linear-gradient(135deg, #ffd60a, #ff9f43);
+  border: none; border-radius: 50px;
+  padding: 1.1rem 2.6rem; font-size: 1.2rem; font-weight: 900;
+  font-family: 'Nunito', sans-serif;
+  color: #05050f; cursor: pointer;
+  box-shadow: 0 6px 28px rgba(255,214,10,0.45);
+  transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1);
+}
+.btn-lumis-start:hover  { transform: scale(1.06); }
+.btn-lumis-start:active { transform: scale(0.95); }
+
+@media (max-width: 480px) {
+  .lumis-container { padding: 1rem; }
+  .lumis-title     { font-size: 1.4rem; }
+  .identity-card   { padding: 1.5rem 1.1rem; }
+  .id-name         { font-size: 1.6rem; }
+}

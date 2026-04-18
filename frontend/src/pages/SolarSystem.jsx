@@ -87,7 +87,7 @@ function StarField() {
   )
 }
 
-function SolarSystem({ childName, unlockedPlanets = [], scores = {}, onSelectPlanet, onOpenDashboard }) {
+function SolarSystem({ childName, unlockedPlanets = [], scores = {}, onSelectPlanet, onOpenDashboard, onOpenProfile }) {
   const [selected, setSelected] = useState(null)
   const containerRef = useRef(null)
 
@@ -121,6 +121,11 @@ function SolarSystem({ childName, unlockedPlanets = [], scores = {}, onSelectPla
         <div className="child-greeting">¡Hola, {childName}!</div>
         <div className="solar-header-right">
           <div className="total-stars"><StarSVG /> {totalStars}</div>
+          {onOpenProfile && (
+            <button className="btn-dashboard" onClick={onOpenProfile} style={{ background: 'rgba(199,125,255,0.15)', borderColor: 'rgba(199,125,255,0.35)', color: '#c77dff' }}>
+              🪐 Mi Planeta
+            </button>
+          )}
           {onOpenDashboard && (
             <button className="btn-dashboard" onClick={onOpenDashboard}>
               Reporte

@@ -1,0 +1,318 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap');
+
+.nexus-container {
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse 70% 55% at 15% 8%,  rgba(249,132,74,0.13) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 70% at 88% 92%, rgba(255,107,107,0.08) 0%, transparent 55%),
+    radial-gradient(ellipse at center, #180d04 0%, #05050f 100%);
+  padding: 1.5rem;
+  font-family: 'Nunito', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.nexus-stars {
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 6%  10%, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1px 1px at 22% 44%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(2px 2px at 37% 22%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(1px 1px at 54% 68%, rgba(255,255,255,0.9), transparent),
+    radial-gradient(1px 1px at 70% 32%, rgba(255,255,255,0.5), transparent),
+    radial-gradient(2px 2px at 85% 14%, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1px 1px at 92% 58%, rgba(255,255,255,0.7), transparent);
+  pointer-events: none;
+  animation: nx-twinkle 7s ease-in-out infinite alternate;
+}
+@keyframes nx-twinkle { from{opacity:.4} to{opacity:1} }
+
+/* ── Header ── */
+.nexus-badge {
+  color: #f9844a;
+  font-weight: 900;
+  font-size: 1rem;
+  background: rgba(249,132,74,0.12);
+  padding: 0.3rem 0.9rem;
+  border-radius: 50px;
+  border: 1px solid rgba(249,132,74,0.35);
+}
+
+/* ── Title ── */
+.nexus-title {
+  color: white;
+  font-size: 1.7rem;
+  font-weight: 900;
+  text-align: center;
+  margin: 0.5rem 0 0.2rem;
+  text-shadow: 0 0 22px rgba(249,132,74,0.6);
+  position: relative; z-index: 1;
+}
+
+.nexus-subtitle {
+  color: rgba(255,255,255,0.5);
+  font-size: 0.9rem;
+  text-align: center;
+  margin-bottom: 1.2rem;
+  position: relative; z-index: 1;
+}
+
+/* ── Progress bar ── */
+.nexus-progress {
+  width: 100%;
+  max-width: 420px;
+  height: 6px;
+  background: rgba(255,255,255,0.07);
+  border-radius: 6px;
+  margin-bottom: 1.2rem;
+  overflow: hidden;
+  position: relative; z-index: 1;
+}
+
+.nexus-progress-fill {
+  height: 100%;
+  border-radius: 6px;
+  background: linear-gradient(to right, #f9844a, #ffd60a);
+  box-shadow: 0 0 8px rgba(249,132,74,0.6);
+  transition: width 0.5s ease;
+}
+
+/* ── Scenario card ── */
+.scenario-card {
+  background: rgba(249,132,74,0.07);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(249,132,74,0.25);
+  border-radius: 28px;
+  padding: 1.5rem 1.4rem;
+  width: 100%;
+  max-width: 420px;
+  margin-bottom: 1.2rem;
+  position: relative; z-index: 1;
+  animation: nx-card-in 0.4s cubic-bezier(0.34,1.56,0.64,1);
+}
+
+@keyframes nx-card-in {
+  from { transform: scale(0.88) translateY(16px); opacity: 0; }
+  to   { transform: scale(1)    translateY(0);    opacity: 1; }
+}
+
+.scenario-scene {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.scenario-illustration {
+  font-size: 3.8rem;
+  flex-shrink: 0;
+  animation: nx-bounce 2s ease-in-out infinite;
+}
+
+@keyframes nx-bounce {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+
+.scenario-text {
+  color: white;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.65;
+}
+
+.scenario-question {
+  color: #f9844a;
+  font-size: 0.9rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.8rem;
+}
+
+/* ── Answer options ── */
+.nexus-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+  width: 100%;
+  max-width: 420px;
+  position: relative; z-index: 1;
+}
+
+.nexus-option {
+  background: rgba(255,255,255,0.05);
+  border: 2px solid rgba(255,255,255,0.09);
+  border-radius: 20px;
+  padding: 1rem 0.9rem;
+  cursor: pointer;
+  transition: transform 0.18s cubic-bezier(0.34,1.56,0.64,1), border-color 0.2s, background 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Nunito', sans-serif;
+  text-align: center;
+}
+
+.nexus-option:hover {
+  transform: translateY(-4px) scale(1.03);
+  border-color: rgba(249,132,74,0.5);
+  background: rgba(249,132,74,0.08);
+  box-shadow: 0 8px 24px rgba(249,132,74,0.2);
+}
+
+.nexus-option:active { transform: scale(0.94); }
+
+.nexus-option.correct {
+  border-color: #06d6a0;
+  background: rgba(6,214,160,0.15);
+  box-shadow: 0 0 24px rgba(6,214,160,0.4);
+  animation: nx-correct 0.4s ease;
+}
+
+@keyframes nx-correct {
+  0%  { transform: scale(1); }
+  40% { transform: scale(1.1); }
+  100%{ transform: scale(1); }
+}
+
+.nexus-option.wrong {
+  border-color: #ff4757;
+  background: rgba(255,71,87,0.12);
+  animation: nx-wrong 0.4s ease;
+}
+
+@keyframes nx-wrong {
+  0%,100% { transform: translateX(0); }
+  25%      { transform: translateX(-8px); }
+  75%      { transform: translateX(8px); }
+}
+
+.nexus-option.disabled { pointer-events: none; opacity: 0.45; }
+
+.opt-emoji { font-size: 2.2rem; }
+.opt-label { color: white; font-size: 0.85rem; font-weight: 700; line-height: 1.4; }
+
+/* ── Feedback bubble ── */
+.nexus-feedback {
+  width: 100%;
+  max-width: 420px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 18px;
+  padding: 0.9rem 1.2rem;
+  color: rgba(255,255,255,0.85);
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.6;
+  margin-top: 0.8rem;
+  position: relative; z-index: 1;
+  animation: nx-card-in 0.3s ease;
+}
+
+.nexus-feedback.good { border-color: rgba(6,214,160,0.35); }
+.nexus-feedback.bad  { border-color: rgba(255,71,87,0.35); }
+
+/* ── Streak / score ── */
+.nexus-streak {
+  color: #ffd60a;
+  font-weight: 900;
+  font-size: 1rem;
+  margin-top: 0.4rem;
+  animation: fadeIn .3s ease;
+  position: relative; z-index: 1;
+}
+@keyframes fadeIn { from{opacity:0;transform:scale(.85)} to{opacity:1;transform:scale(1)} }
+
+/* ── End screen ── */
+.nexus-end {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  position: relative; z-index: 1;
+  text-align: center;
+  padding: 1rem;
+}
+
+.nexus-end-card {
+  background: rgba(249,132,74,0.08);
+  border: 1px solid rgba(249,132,74,0.3);
+  border-radius: 28px;
+  padding: 2rem 1.5rem;
+  max-width: 380px;
+  width: 100%;
+}
+
+.nexus-end-emoji { font-size: 5rem; animation: nx-bounce 2s ease-in-out infinite; }
+.nexus-end-title { color: white; font-size: 1.6rem; font-weight: 900; margin: 0.5rem 0; }
+.nexus-end-sub   { color: rgba(255,255,255,0.65); font-size: 1rem; font-weight: 700; line-height: 1.6; }
+.nexus-end-score { color: #ffd60a; font-size: 1.4rem; font-weight: 900; margin-top: 0.8rem; }
+
+.btn-nexus {
+  background: linear-gradient(135deg, #f9844a, #e06020);
+  border: none; border-radius: 50px;
+  padding: 1rem 2.4rem;
+  font-size: 1.1rem; font-weight: 900;
+  font-family: 'Nunito', sans-serif;
+  color: white; cursor: pointer;
+  box-shadow: 0 6px 25px rgba(249,132,74,0.5);
+  transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1);
+}
+.btn-nexus:hover  { transform: scale(1.06); }
+.btn-nexus:active { transform: scale(0.95); }
+
+/* ── Floating score ── */
+.nexus-float {
+  position: fixed;
+  font-size: 1.8rem; font-weight: 900;
+  color: #f9844a;
+  text-shadow: 0 0 16px rgba(249,132,74,0.9);
+  pointer-events: none; z-index: 50;
+  animation: nx-float-up 1s ease-out forwards;
+}
+@keyframes nx-float-up {
+  0%   { transform: translateY(0) scale(.7); opacity: 0; }
+  20%  { transform: translateY(-8px) scale(1.2); opacity: 1; }
+  100% { transform: translateY(-60px) scale(.9); opacity: 0; }
+}
+
+/* ── Intro ── */
+.nexus-intro {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 1.4rem; z-index: 1;
+  width: 100%; max-width: 420px;
+}
+
+.nexus-intro-text {
+  color: rgba(255,255,255,0.85); font-size: 1rem; font-weight: 700;
+  text-align: center;
+  background: rgba(249,132,74,0.07);
+  border: 1px solid rgba(249,132,74,0.2);
+  border-radius: 20px; padding: 1.2rem 1.5rem; line-height: 1.7;
+}
+
+.btn-nexus-start {
+  background: linear-gradient(135deg, #f9844a, #e06020);
+  border: none; border-radius: 50px;
+  padding: 1.1rem 2.6rem;
+  font-size: 1.2rem; font-weight: 900;
+  font-family: 'Nunito', sans-serif;
+  color: white; cursor: pointer;
+  box-shadow: 0 6px 28px rgba(249,132,74,0.5);
+  transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1);
+}
+.btn-nexus-start:hover  { transform: scale(1.06); }
+.btn-nexus-start:active { transform: scale(0.95); }
+
+@media (max-width: 480px) {
+  .nexus-container { padding: 1rem; }
+  .nexus-title     { font-size: 1.4rem; }
+  .opt-emoji       { font-size: 1.8rem; }
+  .opt-label       { font-size: 0.78rem; }
+}

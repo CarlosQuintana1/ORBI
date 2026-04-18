@@ -1,0 +1,399 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap');
+
+.prisma-container {
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse 70% 55% at 10% 8%,  rgba(247,37,133,0.12) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 70% at 90% 90%, rgba(247,37,133,0.08) 0%, transparent 55%),
+    radial-gradient(ellipse at center, #1a0418 0%, #05050f 100%);
+  padding: 1.5rem;
+  font-family: 'Nunito', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Stars BG ── */
+.prisma-stars {
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at  7% 15%, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1px 1px at 20% 40%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(2px 2px at 38% 22%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(1px 1px at 55% 68%, rgba(255,255,255,0.9), transparent),
+    radial-gradient(1px 1px at 68% 28%, rgba(255,255,255,0.5), transparent),
+    radial-gradient(2px 2px at 82% 12%, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1px 1px at 94% 55%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(1px 1px at 15% 82%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(2px 2px at 77% 88%, rgba(255,255,255,0.8), transparent);
+  pointer-events: none;
+  animation: prisma-twinkle 7s ease-in-out infinite alternate;
+}
+
+@keyframes prisma-twinkle {
+  from { opacity: 0.4; }
+  to   { opacity: 1; }
+}
+
+/* ── Prismatic shimmer ── */
+.prisma-shimmer {
+  position: fixed;
+  inset: 0;
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    rgba(247,37,133,0.04) 0deg,
+    rgba(76,201,240,0.04) 90deg,
+    rgba(255,214,10,0.04) 180deg,
+    rgba(6,214,160,0.04) 270deg,
+    rgba(247,37,133,0.04) 360deg
+  );
+  pointer-events: none;
+  animation: prisma-rotate 30s linear infinite;
+}
+
+@keyframes prisma-rotate { to { transform: rotate(360deg); } }
+
+/* ── Header badge ── */
+.prisma-badge {
+  color: #f72585;
+  font-weight: 900;
+  font-size: 1rem;
+  background: rgba(247,37,133,0.12);
+  padding: 0.3rem 0.9rem;
+  border-radius: 50px;
+  border: 1px solid rgba(247,37,133,0.35);
+}
+
+/* ── Title ── */
+.prisma-title {
+  color: white;
+  font-size: 1.7rem;
+  font-weight: 900;
+  text-align: center;
+  margin: 0.4rem 0 0.2rem;
+  text-shadow: 0 0 24px rgba(247,37,133,0.6);
+  position: relative;
+  z-index: 1;
+}
+
+.prisma-subtitle {
+  color: rgba(255,255,255,0.5);
+  font-size: 0.9rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Challenge label ── */
+.prisma-challenge {
+  color: white;
+  font-size: 1.05rem;
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 0.8rem;
+  padding: 0.6rem 1.4rem;
+  background: rgba(247,37,133,0.08);
+  border: 1px solid rgba(247,37,133,0.25);
+  border-radius: 16px;
+  z-index: 1;
+  position: relative;
+}
+
+/* ── Pattern grid ── */
+.pattern-grid-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  z-index: 1;
+  width: 100%;
+  max-width: 400px;
+}
+
+.pattern-label {
+  color: rgba(255,255,255,0.45);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  align-self: flex-start;
+  padding-left: 4px;
+}
+
+.pattern-grid {
+  display: grid;
+  gap: 8px;
+  width: 100%;
+}
+
+.grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+/* ── Pattern cell ── */
+.pattern-cell {
+  aspect-ratio: 1;
+  border-radius: 14px;
+  border: 2px solid rgba(255,255,255,0.08);
+  transition: transform 0.18s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+}
+
+.pattern-cell.hidden {
+  background: rgba(255,255,255,0.04);
+  border: 2px dashed rgba(247,37,133,0.4);
+  cursor: pointer;
+  animation: hidden-pulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes hidden-pulse {
+  from { border-color: rgba(247,37,133,0.25); }
+  to   { border-color: rgba(247,37,133,0.65); }
+}
+
+.pattern-cell.hidden:hover {
+  transform: scale(1.05);
+  border-color: rgba(247,37,133,0.8);
+  box-shadow: 0 0 16px rgba(247,37,133,0.3);
+}
+
+.pattern-cell.reveal-anim {
+  animation: cell-reveal 0.4s cubic-bezier(0.34,1.56,0.64,1);
+}
+
+@keyframes cell-reveal {
+  0%   { transform: scale(0.5) rotate(12deg); opacity: 0; }
+  60%  { transform: scale(1.15) rotate(-3deg); }
+  100% { transform: scale(1) rotate(0); opacity: 1; }
+}
+
+.cell-shine {
+  position: absolute;
+  top: 6px; left: 6px;
+  width: 40%;
+  height: 35%;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  pointer-events: none;
+}
+
+/* ── Question mark in hidden cell ── */
+.cell-question {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(247,37,133,0.7);
+  font-size: 1.6rem;
+  font-weight: 900;
+}
+
+/* ── Options palette ── */
+.options-label {
+  color: rgba(255,255,255,0.45);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  text-align: center;
+  margin-bottom: 0.4rem;
+  z-index: 1;
+}
+
+.options-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  z-index: 1;
+}
+
+.option-cell {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  border: 3px solid rgba(255,255,255,0.12);
+  cursor: pointer;
+  transition: transform 0.18s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s, border-color 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.option-cell:hover {
+  transform: scale(1.12) translateY(-4px);
+  border-color: rgba(247,37,133,0.6);
+  box-shadow: 0 8px 24px rgba(247,37,133,0.3);
+}
+
+.option-cell:active {
+  transform: scale(0.93);
+  transition-duration: 0.07s;
+}
+
+.option-cell.correct-flash {
+  animation: correct-flash 0.4s ease;
+}
+
+@keyframes correct-flash {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.35); box-shadow: 0 0 40px rgba(6,214,160,0.8); border-color: #06d6a0; }
+  100% { transform: scale(1); }
+}
+
+.option-cell.wrong-flash {
+  animation: wrong-flash 0.4s ease;
+}
+
+@keyframes wrong-flash {
+  0%   { transform: translateX(0); }
+  25%  { transform: translateX(-10px); }
+  75%  { transform: translateX(10px); }
+  100% { transform: translateX(0); }
+}
+
+/* ── Status feedback ── */
+.prisma-status {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 900;
+  text-align: center;
+  min-height: 1.8rem;
+  z-index: 1;
+  animation: fadeInP 0.3s ease;
+}
+
+@keyframes fadeInP {
+  from { opacity: 0; transform: scale(0.8); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ── Level / streak ── */
+.prisma-level {
+  color: #f72585;
+  font-weight: 700;
+  font-size: 0.9rem;
+  background: rgba(247,37,133,0.1);
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  border: 1px solid rgba(247,37,133,0.3);
+}
+
+.prisma-streak {
+  color: #ffd60a;
+  font-size: 1rem;
+  font-weight: 900;
+  z-index: 1;
+  animation: fadeInP 0.3s ease;
+}
+
+/* ── Floating score ── */
+.prisma-float-score {
+  position: fixed;
+  top: 36%;
+  font-size: 2rem;
+  font-weight: 900;
+  color: #f72585;
+  text-shadow: 0 0 20px rgba(247,37,133,0.9), 0 0 40px rgba(247,37,133,0.4);
+  pointer-events: none;
+  z-index: 50;
+  animation: float-up-p 1.2s ease-out forwards;
+}
+
+@keyframes float-up-p {
+  0%   { transform: translateY(0)   scale(0.6); opacity: 0; }
+  20%  { transform: translateY(-10px) scale(1.2); opacity: 1; }
+  80%  { transform: translateY(-55px) scale(1);   opacity: 1; }
+  100% { transform: translateY(-85px) scale(0.9); opacity: 0; }
+}
+
+/* ── Level up toast ── */
+.prisma-levelup {
+  position: fixed;
+  top: 44%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(135deg, #f72585, #b5179e);
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 900;
+  padding: 1rem 2.5rem;
+  border-radius: 24px;
+  z-index: 200;
+  pointer-events: none;
+  animation: levelUpAnimP 2.2s ease forwards;
+  text-align: center;
+}
+
+@keyframes levelUpAnimP {
+  0%   { transform: translate(-50%,-50%) scale(0.4); opacity: 0; }
+  20%  { transform: translate(-50%,-50%) scale(1.1); opacity: 1; }
+  75%  { transform: translate(-50%,-50%) scale(1);   opacity: 1; }
+  100% { transform: translate(-50%,-50%) scale(0.9); opacity: 0; }
+}
+
+/* ── Orbi Prisma ── */
+.orbi-prisma-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  z-index: 1;
+  margin: 0.4rem 0;
+}
+
+.orbi-prisma-svg {
+  filter: drop-shadow(0 0 20px rgba(247,37,133,0.6));
+}
+
+/* ── Intro ── */
+.prisma-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.4rem;
+  z-index: 1;
+  width: 100%;
+  max-width: 400px;
+}
+
+.prisma-intro-text {
+  color: rgba(255,255,255,0.85);
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-align: center;
+  background: rgba(247,37,133,0.07);
+  border: 1px solid rgba(247,37,133,0.2);
+  border-radius: 20px;
+  padding: 1.2rem 1.5rem;
+  line-height: 1.7;
+}
+
+.btn-prisma-start {
+  background: linear-gradient(135deg, #f72585, #b5179e);
+  border: none;
+  border-radius: 50px;
+  padding: 1.1rem 2.6rem;
+  font-size: 1.2rem;
+  font-weight: 900;
+  font-family: 'Nunito', sans-serif;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 6px 28px rgba(247,37,133,0.5);
+  transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s;
+  z-index: 1;
+}
+.btn-prisma-start:hover  { transform: scale(1.06); box-shadow: 0 8px 40px rgba(247,37,133,0.75); }
+.btn-prisma-start:active { transform: scale(0.95); }
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .prisma-container { padding: 1rem; }
+  .prisma-title     { font-size: 1.4rem; }
+  .option-cell      { width: 54px; height: 54px; }
+}
